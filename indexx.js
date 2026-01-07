@@ -128,3 +128,23 @@ const cartsData = [
   });
 });
 
+// الأيقونة نفسها
+const cartIcon = document.querySelector(".order i");
+
+// قراءة العدد من localStorage
+let cartCount = localStorage.getItem("cartCount");
+cartCount = cartCount ? parseInt(cartCount) : 0;
+
+// تحديث الرقم عند التحميل
+cartIcon.style.setProperty('--counter', `"${cartCount}"`);
+
+// كل الكروت اللي اسمها ordercart
+document.querySelectorAll(".ordercart").forEach(card => {
+  card.addEventListener("click", () => {
+    cartCount++;
+    localStorage.setItem("cartCount", cartCount);
+
+    // تحديث الرقم في ::after
+    cartIcon.style.setProperty('--counter', `"${cartCount}"`);
+  });
+});

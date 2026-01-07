@@ -117,20 +117,24 @@ body,html {
   position: relative;
 }
 
-.order i::after{
-  bottom: 25px;
-  left: 33px;
+بدو .order i {
+  position: relative; /* لازم للـ ::after */
+}
+
+.order i::after {
+  content: var(--counter, "0"); /* الرقم يظهر من JS */
   position: absolute;
-  content: "1";
+  top: -6px;
+  right: -10px;
+  background: red;
+  color: white;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
-  background-color: #a00;
-  width: 20px;
-  height: 20px;
-  clip-path: circle(50%);
-  
 }
 
 .cart .cotton{
